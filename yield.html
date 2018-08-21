@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Yield exercise</title>
+    <script>
+              let arr = [0, 0, 0, 0, 0];
+        let generator;
+        function callPromise(prevPromise, num, index) {
+            return prevPromise.then(() => new Promise((resolve, reject) => {
+                setTimeout(
+                    () => {
+                        arr[index] = num = (generator.next().value);
+                        console.log(num);
+                        resolve();
+                    }, 1000)//timeOut has to be:1000*num
+            }));
+        }
+        function* gen(num) {
+            yield num
+            yield* gen(num ** 2);
+
+        }
+        function start() {
+            generator = gen(2);
+            arr.reduce(callPromise, new Promise((x, y) => { x() }))
+            console.log(arr);
+        }
+
+        start();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
