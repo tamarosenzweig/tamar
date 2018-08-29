@@ -1,0 +1,13 @@
+<p>
+ selectedColor:{{selectedColor}}
+</p>
+<!-- <select class="form-control" name="key" required type="text" [(ngModel)]="key" id="key" #key="ngModel" (change)="changeColor()">
+  <option *ngFor="let key of colors" [ngValue]="key">{{key}}</option>
+</select> -->
+<select [(ngModel)]="key" (change)="changeColor($event.target.value)">
+  <option *ngFor="let key of colors,let i=index" [value]="i">{{key}}</option>
+</select>
+<hr>
+<p>
+  
+</p>

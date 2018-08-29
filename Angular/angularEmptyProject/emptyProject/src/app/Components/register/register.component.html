@@ -1,0 +1,78 @@
+<div class="container">
+  <div id="signup">
+    <div class="signup-screen">
+      <div class="space-bot text-center">
+        <h1>Sign up</h1>
+        <div class="divider"></div>
+      </div>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form-register">
+        <div>
+          <div class="input-field col s6">
+            <label>Name:
+              <input type="text" formControlName="name" required minlength="3" maxlength="15" pattern="[a-zA-Zא-ת]+" >
+            </label>
+          </div>
+          <div *ngIf="name.errors && (name.dirty || name.touched )" class="alert alert-danger">
+            <div *ngIf="name.errors.required">Name is required.</div>
+            <div *ngIf="name.errors.minlength">Name must be at least 3 characters long.</div>
+            <div *ngIf="name.errors.maxlength">Name must be maximum 15 characters long.</div>
+            <div *ngIf="name.errors.pattern">Name must contain only letters</div>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <label>
+            Id:
+            <input type="text" formControlName="id" maxlength="9" minlength="9" pattern="[0-9]+" class="input-field col s6" required>
+          </label>
+          <div *ngIf="id.errors && (id.dirty || id.touched)" class="alert alert-danger">
+            <div *ngIf="id.errors.required">id is required.</div>
+            <div *ngIf="id.errors.minlength">id must be 9 characters long.</div>
+            <div *ngIf="id.errors.pattern">id must contain only digits</div>
+            <div *ngIf="id.errors.validId">Id is not exist</div>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <label>Country:</label>
+          <select formControlName="country" required>
+            <option *ngFor="let country of lands" >{{country.name}}</option>
+          </select>
+          <div *ngIf="country.invalid && (country.dirty || country.touched )" class="alert alert-danger">
+            <div *ngIf="country.errors.required">Country is required.</div>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <label>Age:</label>
+          <input type="number" formControlName="age" required min="0" max="120" class="input-field col s6" required>
+          <div *ngIf="age.invalid && (age.dirty || age.touched )" class="alert alert-danger">
+            <div *ngIf="age.errors.required">Age is required.</div>
+            <div *ngIf="age.errors.min">Age must be greater or equals to 0</div>
+            <div *ngIf="age.errors.max">Age must be less than or equals to 120</div>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <label>
+            Is Male:
+            <input type="checkbox" formControlName="isMale">
+          </label>
+          <!-- <div class="alert alert-danger">
+            <div *ngIf="!isMale.dirty && submitted">IsMale is required.</div>
+          </div> -->
+        </div>
+       
+        <button type="submit" [disabled]="!registerForm.valid" class="waves-effect waves-light btn done">Submit</button>
+      </form>
+
+      <hr>
+      <p>
+        Form Value: {{ registerForm.value | json }}
+      </p>
+      <p>
+        Form Status: {{ registerForm.status }}
+      </p>
+    </div>
+  </div>
+</div>

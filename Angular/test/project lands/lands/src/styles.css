@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+ 
+    font-family:'Architects Daughter',cursive;
+  }
+  
+  h1, button{
+    color:#fff;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .main{
+    width: 100%;
+  }

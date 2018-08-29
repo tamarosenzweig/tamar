@@ -1,0 +1,39 @@
+<h4>Test project</h4>
+<form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="filter" name="input" (input)="search()"> 
+    <!-- <button class="button-one " type="submit" (click)="search()">Search</button> -->
+</form>
+<div class="row">
+    <table ng-table="tableParamsFolders" show-filter="false">
+        <thead>
+            <tr>
+                <th class="sortable col-md-2 sort-desc">
+                    <div class="sort-indicator">name</div>
+                </th>
+                <th class="sortable col-md-1">
+                    <div class="sort-indicator">nativeName</div>
+                </th>
+                <th class="sortable col-md-1">
+                    <div class="sort-indicator">capital</div>
+                </th>
+                <th class="sortable col-md-1">
+                    <div class="sort-indicator">population</div>
+                </th>
+                <th class="sortable col-md-1">
+                    <div class="sort-indicator">flag </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody class="clickable">
+            <tr *ngFor="let item of filterArr">
+                <td>{{item.name}}</td>
+                <td>{{item.nativeName }}</td>
+                <td>{{item.capital }}</td>
+                <td>{{item.population }}</td>
+                <td>
+                    <img src="{{item.flag }}" style="width:80px;height:50px">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
