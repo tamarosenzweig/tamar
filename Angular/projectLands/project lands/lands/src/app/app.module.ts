@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import{FormsModule}from "@angular/forms";
 import { HttpClientModule, HttpHeaders, HttpResponse, HttpClient } from '@angular/common/http';
 const appRoutes: Routes = [
-  { path: 'test', component: HomeComponent },
+  // { path: 'test/home', component: HomeComponent },
   { path: 'test/home', component: HomeComponent },
   { path: 'test/countries',      component: CountriesComponent }
  
