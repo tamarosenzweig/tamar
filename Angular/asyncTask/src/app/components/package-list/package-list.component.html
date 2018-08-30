@@ -1,0 +1,19 @@
+<div class="scrollbar">
+    <div id="force-overflow">
+        <div id="header">
+            <div class="thumbur">
+            </div>
+            <h2>PACKAGES & DOWNLOADS</h2>
+            <hr>
+          </div>
+      <ul>
+        <ng-container *ngFor="let x of allPackage">
+          <li class="row">
+            <span class="col-md-3"><b>name: :</b> {{x.name}} </span>
+            <span *ngIf="x.donload" class="col-md-3"><b>download: :</b> {{x.donload}} </span>
+          </li>
+      
+        </ng-container>
+      </ul>
+    </div>
+  </div>
