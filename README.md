@@ -1,1 +1,1 @@
-# tamar
+# tamar/Seldat course
